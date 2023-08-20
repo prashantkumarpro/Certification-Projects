@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1 id="title">Career Interest Survey</h1>
+  <p id="description">Complete our career interest survey to help you find the career best suited for you, based on your
+    personal profile. This will help us evaluate your opportunities and give you an informative report.</p>
+  <form id="survey-form">
+    <label id="name-label">Name<sup style="color:red;">*</sup> <input type="text" id="name" placeholder="enter name..."
+        required><label>
+        <label id="email-label">Email<sup style="color:red;">*</sup> <input type="email" id="email"
+            placeholder="enter email..." required><label>
+            <label id="number-label">Age(optional) <input type="number" id="number" min="13" max="120"
+                placeholder="How old are you?" required><label>
+
+                <label>Gender<sup style="color:red;">*</sup> <select id="dropdown">
+                    <option value="">(select one)</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                  </select>
+                </label>
+                <label id="c-c">What is your current career? Does it match your dream career?<sup
+                    style="color:red;">*</sup> <textarea id="curren-career" rows="3" cols="30"></textarea> </label>
+
+                <label>What are your career goals as of now?<sup style="color:red;">*</sup>
+                  <label id="c-c">What is your current career? Does it match your dream career? <textarea
+                      id="curren-career" rows="3" cols="30"></textarea>
+                  </label>
+
+                  <label>If you had the chance to change your current career field, would you do it?<sup
+                      style="color:red;">*</sup>
+                    <label><input type="radio" value="1" name="change-career" class="inline"> Yes <input type="radio"
+                        value="2" name="change-career" class="inline"> No</label>
+                    <label>Fields you are interested in<sup style="color:red;">*</sup> </label>
+                    <label><input type="checkbox" value="1"> Mathematics</label>
+                    <label><input type="checkbox" value="2"> IT Programming
+                      <label><input type="checkbox" value="3"> Politics</label>
+                      <label><input type="checkbox" value="4"> Marketing</label>
+                      <label><input type="checkbox" value="5"> Agriculture</label>
+                      <label><input type="checkbox" value="6"> Education</label>
+                      <label><input type="checkbox" value="7"> Low</label>
+                      <label><input type="checkbox" value="8"> Business</label>
+                      <label><input type="checkbox" value="9"> Journalism</label>
+                      <label><input type="checkbox" value="10"> Psychology</label>
+
+                      <label>Personal quolities<sup style="color:red;">*</sup></label>
+
+                      <label><input type="checkbox" value="1"> Fast learner</label>
+                      <label><input type="checkbox" value="2"> Organized</label>
+                      <label><input type="checkbox" value="3"> Tenacious</label>
+                      <label><input type="checkbox" value="4"> Self educated</label>
+                      <label><input type="checkbox" value="5"> Self-motivated</label>
+                      <label><input type="checkbox" value="6"> Methodical</label>
+                      <label><input type="checkbox" value="7"> Competitive</label>
+                      <label><input type="checkbox" value="8"> Decision Maker</label>
+
+                      <label>Hobbies:<sup style="color:red;">*</sup>
+                        <label><input type="checkbox" value="1"> Gardening</label>
+                        <label><input type="checkbox" value="2"> Painting</label>
+                        <label><input type="checkbox" value="3"> Cooking</label>
+                        <label><input type="checkbox" value="4"> Programming</label>
+                        <label><input type="checkbox" value="5"> Listening to music</label>
+                        <label><input type="checkbox" value="6"> Playing Video Game</label>
+                        <label><input type="checkbox" value="7"> Fishing</label>
+                        <label><input type="checkbox" value="8"> Networking</label>
+                        <label><input type="checkbox" value="9"> Dancing</label>
+
+                        <input type="submit" value="Submit Form" id="submit">
+
+  </form>
+
+</body>
+
+</html>

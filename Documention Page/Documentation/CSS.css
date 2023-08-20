@@ -1,0 +1,48 @@
+/* CSS Layout - Overflow */
+The CSS overflow property controls what
+ happens to content that is too big to fit into an area.
+
+ /* The overflow property has the following values: */
+
+visible - Default. The overflow is not clipped. The content renders outside the element's box
+hidden - The overflow is clipped, and the rest of the content will be invisible
+scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
+auto - Similar to scroll, but it adds scrollbars only when necessary
+
+
+overflow-x and overflow-y
+
+overflow-x: hidden; /* Hide horizontal scrollbar */
+overflow-y: scroll; /* Add vertical scrollbar */
+
+
+
+
+
+
+position: relative;
+An element with position: relative; is positioned relative to its normal position.
+
+Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.
+
+div.relative {
+    position: relative;
+    left: 30px;
+    border: 3px solid #73AD21;
+  }
+
+  An element with position: fixed
+  it always stays in the same place even if the page is scrolled.
+
+  div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+  }
+
+  An element with position: absolute;
+   is positioned relative to the nearest
+    positioned ancestor
+     (instead of positioned relative to the viewport, like fixed).

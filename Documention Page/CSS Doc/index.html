@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta device="viewport">
+    <title>technical-documentation-page.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>CSS Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#What_you_should_already_know">What you should already know</a></li>
+            <li><a class="nav-link" href="#The_Basic_Of_CSS">The Basic Of CSS</a></li>
+            <li><a class="nav-link" href="#CSS_display_Property">CSS display Property </a></li>
+            <li><a class="nav-link" href="#CSS_Backgrounds">CSS Backgrounds</a></li>
+            <li><a class="nav-link" href="#The_position_Property">The position Property</a></li>
+            <li><a class="nav-link" href="#CSS_Pseudo_classes">CSS Pseudo classes </a></li>
+            <li><a class="nav-link" href="#CSS_Combinators">CSS Combinators</a></li>
+            <li><a class="nav-link" href="#CSS_Responsive">CSS Responsive</a></li>
+            <li><a class="nav-link" href="#Reference">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+
+                <p>Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document
+                    written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how
+                    elements should be rendered on screen, on paper, in speech, or on other media.</p>
+
+                <p>CSS is among the core languages of the open web and is standardized across Web browsers according to
+                    W3C specifications. Previously, the development of various parts of CSS specification was done
+                    synchronously, which allowed the versioning of the latest recommendations. You might have heard
+                    about CSS1, CSS2.1, or even CSS3. There will never be a CSS3 or a CSS4; rather, everything is now
+                    CSS without a version number.</p>
+
+            </article>
+        </section>
+
+        <section class="main-section" id="What_you_should_already_know">
+            <header>What you should already know</header>
+            <article>
+                <p>This guide assumes you have the following basic background:</p>
+                <ol>
+                    <li>Basic familiarity with using computers and using the Web passively (i.e. looking at it,
+                        consuming the content.)</li>
+                    <li>A basic work environment set up, as detailed in Installing basic software, and an understanding
+                        of how to create and manage files, as detailed in Dealing with files.</li>
+                    <li>Basic familiarity with HTML</li>
+                </ol>
+
+            </article>
+        </section>
+
+        <section class="main-section" id="The_Basic_Of_CSS">
+            <header>The Basic Of CSS</header>
+            <article>
+                <p> Like HTML, CSS is not a programming language. It's not a markup language either. CSS is a style
+                    sheet language. CSS is what you use to selectively style HTML elements. For example, this CSS
+                    selects paragraph text, setting the color to red:</p>
+                <code>p {</code>
+                <code> color: red;</code>
+                <code> }</code>
+
+                <p>Let's try it out! Using a text editor, paste the three lines of CSS (above) into a new file. Save the
+                    file as style.css in a directory named styles.</p>
+                <p>To make the code work, we still need to apply this CSS (above) to your HTML document. Otherwise, the
+                    styling won't change the appearance of the HTML. (If you haven't been following our project, pause
+                    here to read Dealing with files and HTML basics.)
+                </p>
+                <ol>
+                    <li>Open your index.html file. Paste the following line in the head (between the &lt;head&gt; and
+                        &lt;/head&gt; tags):
+                    </li>
+                    <code>&lt;link href="styles/style.css" rel="stylesheet" /&gt;
+</code>
+                    <li>Save index.html and load it in your browser. You should see something like this:</li>
+                   
+                </ol>
+                <img
+                src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-styled.png">
+                <p>If your paragraph text is red, congratulations! Your CSS is working.</p>
+                <h3>Anatomy of a CSS ruleset</h3>
+                <p>Let's dissect the CSS code for red paragraph text to understand how it works:</p>
+                <img
+                    src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/css-declaration-small.png">
+                <p>The whole structure is called a ruleset. (The term ruleset is often referred to as just rule.) Note
+                    the names of the individual parts:</p>
+
+                <h3>Selector</h3>
+                <p>This is the HTML element name at the start of the ruleset. It defines the element(s) to be styled (in
+                    this example,
+                    &lt;p&gt; elements). To style a different element, change the selector.</p>
+                <h3>Declaration</h3>
+                <p>
+                    This is a single rule like color: red;. It specifies which of the element's properties you want to
+                    style.</p>
+
+                <h3>Properties</h3>
+                <p>
+                    These are ways in which you can style an HTML element. (In this example, color is a property of the
+                    &lt;p&gt; elements.) In CSS, you choose which properties you want to affect in the rule.</p>
+
+                <h3>Property value</h3>
+                <p>
+                    To the right of the property—after the colon—there is the property value. This chooses one out of
+                    many possible appearances for a given property. (For example, there are many color values in
+                    addition to red.)</p>
+
+                <p>Note the other important parts of the syntax:</p>
+                <ul>
+                    <li>Apart from the selector, each ruleset must be wrapped in curly braces. ({})</li>
+                    <li>Within each declaration, you must use a colon (:) to separate the property from its value or
+                        values.</li>
+                    <li>Within each ruleset, you must use a semicolon (;) to separate each declaration from the next
+                        one.</li>
+                </ul>
+                <p>To modify multiple property values in one ruleset, write them separated by semicolons, like this:</p>
+                <code>p {</code>
+                <code>  color: red;</code>
+                <code> width: 500px;</code>
+                <code> border: 1px solid black; </code>
+                <code>}</code>
+                <h3>Selecting multiple elements</h3>
+                <p>You can also select multiple elements and apply a single ruleset to all of them. Separate
+                    multiple selectors by commas. For example:</p>
+                <code>p,</code>
+                <code>li,</code>
+                <code>h1,</code>
+                <code> {</code>
+                <code> color: red; </code>
+                <code>}</code>
+
+                <h3>Fonts and text</h3>
+                <p>Now that we've explored some CSS fundamentals, let's improve the appearance of the example by adding
+                    more rules and information to the style.css file.</p>
+                <ol>
+                    <li>First, find the output from Google Fonts that you previously saved from What will your website
+                        look like?. Add the
+                        <link> element somewhere inside your index.html's head (anywhere between the
+
+                        <head> and </head> tags). It looks something like this:
+                    </li>
+
+                    <code>&lt;link
+  href="https://fonts.googleapis.com/css?family=Open+Sans"
+  rel="stylesheet" /&gt;
+</code>
+                    <p>This code links your page to a style sheet that loads the Open Sans font family with your
+                        webpage.</p>
+                    <li>Next, delete the existing rule you have in your style.css file. It was a good test, but let's
+                        not continue with lots of red text.</li>
+                    <li>Add the following lines (shown below), replacing the font-family assignment with your
+                        font-family selection from What will your website look like?. The property font-family refers to
+                        the font(s) you want to use for text. This rule defines a global base font and font size for the
+                        whole page. Since <html> is the parent element of the whole page, all elements inside it inherit
+                        the same font-size and font-family.</li>
+                    <code>html {</code>
+                    <code>font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high */</code>
+                    <code>font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */</code>
+                    <code>}</code>
+                    <li>Now let's set font sizes for elements that will have text inside the HTML body (h1, &lt;li&gt;,
+                        and &lt;p&gt;). We'll also center the heading. Finally, let's expand the second ruleset (below)
+                        with settings for line height and letter spacing to make body content more readable.</li>
+                    <code>h1{ </code>
+                    <code>   font-size: 60px; </code>
+                    <code>  text-align: center;</code>
+                    <code>}</code>
+                    <code>p,</code>
+                    <code>li{</code>
+                    <code>font-size: 60px; </code>
+                    <code>line-height: 2;</code>
+                    <code> letter-spacing: 1px; </code>
+                    <code>}</code>
+                    <p>Adjust the px values as you like. Your work-in-progress should look similar to this:</p>
+                    <img
+                        src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-font-small.png">
+                </ol>
+                <h3>CSS: all about boxes</h3>
+                <p>Something you'll notice about writing CSS: a lot of it is about boxes. This includes setting size,
+                    color, and position. Most HTML elements on your page can be thought of as boxes sitting on top of
+                    other boxes.</p>
+                <p>CSS layout is mostly based on the box model. Each box taking up space on your page has properties
+                    like:</p>
+                <ul>
+                    <li>padding, the space around the content. In the example below, it is the space around the
+                        paragraph text.</li>
+                    <li>border, the solid line that is just outside the padding.</li>
+                    <li>margin, the space around the outside of the border.</li>
+                </ul>
+                <img
+                    src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/box-model.png">
+
+                <p>In this section we also use:</p>
+                <ul>
+                    <li>width (of an element).</li>
+                    <li>background-color, the color behind an element's content and padding.</li>
+                    <li>color, the color of an element's content (usually text)</li>
+                    <li>text-shadow sets a drop shadow on the text inside an element.</li>
+                    <li>display sets the display mode of an element. (keep reading to learn more)</li>
+                </ul>
+                <h3>Changing the page color</h3>
+                <code>html {</code>
+                <code> background-color: #00539f;</code>
+                <code>}</code>
+                <h3>Styling the body</h3>
+                <code>body {</code>
+                <code>width: 600px;</code>
+                <code> margin: 0 auto;</code>
+                <code> background-color: #ff9500;</code>
+                <code>padding: 0 20px 20px 20px;</code>
+                <code>border: 5px solid black;</code>
+                <code>}</code>
+                <p>There are several declarations for the
+
+                    <body> element. Let's go through these line-by-line:
+                </p>
+                <ul>
+                    </li>
+                    <li>width: 600px; This forces the body to always be 600 pixels wide. </li>
+                    <li>margin: 0 auto; When you set two values on a property like margin or padding, the first value
+                        affects the element's top and bottom side (setting it to 0 in this case); the second value
+                        affects the left and right side. (Here, auto is a special value that divides the available
+                        horizontal space evenly between left and right). You can also use one, two, three, or four
+                        values, as documented in Margin Syntax. </li>
+
+                    <li>background-color: #FF9500; This sets the element's background color. This project uses a reddish
+                        orange for the body background color, as opposed to dark blue for the &lt;html&gt; element.
+                        (Feel free to experiment.) </li>
+                    <li>padding: 0 20px 20px 20px; This sets four values for padding. The goal is to put some space
+                        around the content. In this example, there is no padding on the top of the body, and 20 pixels
+                        on the right, bottom and left. The values set top, right, bottom, left, in that order. As with
+                        margin, you can use one, two, three, or four values, as documented in Padding Syntax. </li>
+                    <li>border: 5px solid black; This sets values for the width, style and color of the border. In this
+                        case, it's a five-pixel–wide, solid black border, on all sides of the body. </li>
+                </ul>
+                <h3>Positioning and styling the main page title</h3>
+                <code>h1 {</code>
+                <code> margin: 0;</code>
+                <code>padding: 20px 0;</code>
+                <code>color: #00539f;</code>
+                <code> text-shadow: 3px 3px 1px black;</code>
+                <code>}</code>
+                <p>You may have noticed there's a horrible gap at the top of the body. That happens because browsers
+                    apply default styling to the h1 element (among others). That might seem like a bad idea, but the
+                    intent is to provide basic readability for unstyled pages. To eliminate the gap, we overwrite the
+                    browser's default styling with the setting margin: 0;.</p>
+
+                <p>Next, we set the heading's top and bottom padding to 20 pixels.</p>
+
+                <p>Following that, we set the heading text to be the same color as the HTML background color.</p>
+
+                <p>Finally, text-shadow applies a shadow to the text content of the element. Its four values are:</p>
+
+                <ul>
+                    <li>The first pixel value sets the horizontal offset of the shadow from the text: how far it moves
+                        across.</li>
+                    <li>The second pixel value sets the vertical offset of the shadow from the text: how far it moves
+                        down.</li>
+                    <li>The third pixel value sets the blur radius of the shadow. A larger value produces a more
+                        fuzzy-looking shadow.</li>
+                    <li>The fourth value sets the base color of the shadow.</li>
+                </ul>
+                <p>Try experimenting with different values to see how it changes the appearance.</p>
+                <h3>Centering the image</h3>
+                <code>img {  </code>
+                <code> display: block;  </code>
+                <code>margin: 0 auto;  </code>
+                <code>}  </code>
+                <p>Next, we center the image to make it look better. We could use the margin: 0 auto trick again as we
+                    did for the body. But there are differences that require an additional setting to make the CSS work.
+                </p>
+
+                <p>The &lt;body&gt; is a block element, meaning it takes up space on the page. The margin applied to a
+                    block element will be respected by other elements on the page. In contrast, images are inline
+                    elements, for the auto margin trick to work on this image, we must give it block-level behavior
+                    using display: block;.</p>
+
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_display_Property">
+            <header>CSS display Property</header>
+            <article>
+                <h3>display</h3>
+                <p>The display CSS property sets whether an element is treated as a block or inline element and the
+                    layout used for its children, such as flow layout, grid or flex.</p>
+
+                <p>Formally, the display property sets an element's inner and outer display types. The outer type sets
+                    an element's participation in flow layout; the inner type sets the layout of children. Some values
+                    of display are fully defined in their own individual specifications; for example the detail of what
+                    happens when display: flex is declared is defined in the CSS Flexible Box Model specification.</p>
+                <h3>Syntax</h3>
+                <p>The CSS display property is specified using keyword values.</p>
+                <code>/* precomposed values */</code>
+                <code>display: block;</code>
+                <code>display: inline;</code>
+                <code>display: inline-block;</code>
+                <code>display: flex;</code>
+                <code>display: inline-flex;</code>
+                <code>display: grid;</code>
+                <code>display: inline-grid; </code>
+                <code>display: flow-root;</code>
+
+                <code>/* box generation */</code>
+                <code>display: none;</code>
+                <code>display: contents;</code>
+
+                <code>/* multi-keyword syntax */</code>
+                <code>display: block flow;</code>
+                <code>display: inline flow;</code>
+                <code>display: inline flow-root;</code>
+                <code>display: block flex;</code>
+                <code>display: inline flex;</code>
+                <code>display: block grid;</code>
+                <code>display: inline grid;</code>
+                <code>display: block flow-root;</code>
+
+                <code>/* other values */</code>
+                <code>display: table;</code>
+                <code>display: table-row; /* all table elements have an equivalent CSS display value */</code>
+                <code>display: list-item;</code>
+
+                <code>/* Global values */</code>
+                <code>display: inherit;</code>
+                <code>display: initial;</code>
+                <code>display: revert;</code>
+                <code>display: revert-layer;</code>
+                <code>display: unset;</code>
+                <p>block</p>
+                <p>The element generates a block element box, generating line breaks both before and after the element
+                    when in the normal flow.</p>
+
+                <p>inline</p>
+                <p>The element generates one or more inline element boxes that do not generate line breaks before or
+                    after themselves. In normal flow, the next element will be on the same line if there is space.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_Backgrounds">
+            <header>CSS Backgrounds</header>
+            <article>
+                <p>The background shorthand CSS property sets all background style properties at once, such as color,
+                    image, origin and size, or repeat method. Component properties not set in the background shorthand
+                    property value declaration are set to their default values.</p>
+                <p>The background property is a shorthand property for:</p>
+                <ul>
+                    <li>background-color </li>
+                    <li>background-image</li>
+                    <li>background-position</li>
+                    <li>background-size</li>
+                    <li>background-repeat</li>
+                    <li>background-origin</li>
+                    <li> background-clip</li>
+                    <li> background-attachment</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="The_position_Property">
+            <header>The position Property</header>
+            <article>
+                <p>The position CSS property sets how an element is positioned in a document. The top, right, bottom,
+                    and left properties determine the final location of positioned elements.</p>
+                <p>There are five values the position property can take. They are:</p>
+                <ol>
+
+                    <li> static </li>
+                    <li>relative </li>
+                    <li>absolute </li>
+                    <li> fixed </li>
+                    <li>sticky </li>
+                </ol>
+                <h3> Static</h3>
+
+                <p>This is the default value for elements. The element is positioned according to the normal flow of the
+                    document. The left, right, top, bottom and z-index properties do not affect an element with
+                    position: static.</p>
+                <p>Relative</p>
+                <p> Elements with position: relative remain in the normal flow of the document. But, unlike static
+                    elements, the left, right, top, bottom and z-index properties affect the position of the element. An
+                    offset, based on the values of left, right, top and bottom properties, is applied to the element
+                    relative to itself.</p>
+                <h3> Absolute</h3>
+                <p> Elements with position: absolute are positioned relative to their parent elements. In this case, the
+                    element is removed from the normal document flow. The other elements will behave as if that element
+                    is
+                    not in the document. No space is created for the element in the page layout. The values of left,
+                    top,
+                    bottom and right determine the final position of the element. </p>
+
+                <p> One thing to note is that an element with position: absolute is positioned relative to its closest
+                    positioned ancestor. That means that the parent element has to have a position value other than
+                    position: static. </p>
+
+                <p> If the closest parent element is not positioned, it is positioned relative to the next parent
+                    element
+                    that is positioned. If there's no positioned ancestor element, it is positioned relative to the
+                    &lt;html&gt;
+                    element. </p>
+
+                <h3>Fixed </h3>
+                <p>Fixed position elements are similar to absolutely positioned elements. They are also removed from the
+                    normal flow of the document. But unlike absolutely positioned element, they are always positioned
+                    relative to the &lt;html&gt; element. </p>
+
+                <p>One thing to note is that fixed elements are not affected by scrolling. They always stay in the same
+                    position on the screen. </p>
+
+                <h3>Sticky</h3>
+                <p>position: sticky is a mix of position: relative and position: fixed. It acts like a relatively
+                    positioned element until a certain scroll point and then it acts like a fixed element. Have no fear
+                    if you don't understand what this means, the example will help you to understand it better.</p>
+            </article>
+        </section>
+        <section class="main-section" id="CSS_Pseudo_classes">
+            <header>CSS Pseudo classes</header>
+            <article>
+                <p>A pseudo-class is used to define a special state of an element.</p>
+
+                <p>For example, it can be used to:</p>
+                <ul>
+
+                    <li>Style an element when a user mouses over it</li>
+                    <li>Style visited and unvisited links differently</li>
+                    <li>Style an element when it gets focus</li>
+                </ul>
+                <p>The syntax of pseudo-classes:</p>
+                <code>selector:pseudo-class {</code>
+                <code> property: value;</code>
+                <code>}</code>
+                <p>Links can be displayed in different ways:</p>
+                <p>/* unvisited link */</p>
+                <code>a:link {  </code>
+                <code> color: #FF0000;  </code>
+                <code>}</code>
+
+                <p>/* visited link */</p>
+                <code>a:visited {</code>
+                <code>color: #00FF00;  </code>
+                <code>}</code>
+
+                <p>/* mouse over link */</p>
+                <code>a:hover {  </code>
+                <code>color: #FF00FF;  </code>
+                <code>}</code>
+
+                <p>/* selected link */</p>
+                <code>a:active {  </code>
+                <code>color: #0000FF;  </code>
+                <code>}</code>
+            </article>
+        </section>
+        <section class="main-section" id="CSS_Combinators">
+            <header>CSS Combinators</header>
+            <article>
+                <p>A combinator is something that explains the relationship between the selectors.</p>
+                <p>A CSS selector can contain more than one simple selector. Between the simple selectors, we can
+                    include a combinator.</p>
+                <p>There are four different combinators in CSS:</p>
+                <ul>
+                    <li> descendant selector (space)</li>
+                    <li>child selector (>)</li>
+                    <li>adjacent sibling selector (+)</li>
+                    <li>general sibling selector (~)
+                    </li>
+
+                </ul>
+                <h3>Descendant Selector</h3>
+                <p>The descendant selector matches all elements that are descendants of a specified element.</p>
+
+                <p>The following example selects all &lt;p&gt; elements inside &lt;div&gt; elements: </p>
+                <code>div p {</code>
+                <code>background-color: yellow;</code>
+                <code>}</code>
+                <h3>Child Selector (>)</h3>
+                <p>The child selector selects all elements that are the children of a specified element.</p>
+
+                <p>The following example selects all &lt;p&gt; elements that are children of a &lt;div&gt; element:</p>
+                <code>div > p {</code>
+                <code>background-color: yellow;</code>
+                <code>}</code>
+                <h3>Adjacent Sibling Selector (+)</h3>
+                <p>The adjacent sibling selector is used to select an element that is directly after another specific
+                    element. </p>
+
+                <p>Sibling elements must have the same parent element, and "adjacent" means "immediately following".
+                </p> The following example selects the first &lt;p&gt; element that are placed immediately after
+                &lt;div&gt; elements:</p>
+                <code>div + p {</code>
+                <code>background-color: yellow;</code>
+                <code>}</code>
+                <h3>General Sibling Selector (~)</h3>
+                <p>The general sibling selector selects all elements that are next siblings of a specified element.</p>
+
+                <p>The following example selects all &lt;p&gt; elements that are next siblings of &lt;div&gt; elements:
+                </p>
+                <code>div ~ p {</code>
+                <code>background-color: yellow;</code>
+                <code>}</code>
+            </article>
+        </section>
+        <section class="main-section" id="CSS_Responsive">
+            <header>CSS Responsive</header>
+            <article>
+                <p>Responsive web design makes your web page look good on all devices.</p>
+
+                <p>Responsive web design uses only HTML and CSS.</p>
+
+                <p>Responsive web design is not a program or a JavaScript.</p>
+                <p>Web pages can be viewed using many different devices: desktops, tablets, and phones. Your web page
+                    should look good, and be easy to use, regardless of the device.</p>
+
+                <p>Web pages should not leave out information to fit smaller devices, but rather adapt its content to
+                    fit any device:</p>
+                <p>It is called responsive web design when you use CSS and HTML to resize, hide, shrink, enlarge, or
+                    move the content to make it look good on any screen.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <article>
+                <p>The documentation in this page is taken from <a
+                        href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">
+                        MDN , <a
+                            href="https://www.freecodecamp.org/news/learn-the-basics-the-css-position-property/">freeCodeCamp</a>
+                        and <a href="https://www.w3schools.com/css/css_combinators.asp"> W3School</a></p>
+
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
